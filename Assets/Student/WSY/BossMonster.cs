@@ -9,7 +9,7 @@ public class BossMonster : Monster
         Move();
         Attack();
         BossAttack();
-        BossDie();
+        Die();
     }
 
     private void BossAttack()
@@ -34,26 +34,10 @@ public class BossMonster : Monster
         }
     }
 
-    private void BossDie()
+    protected override void Die()
     {
-        if (hp == 0 && !isDead)
-        {
-            // 죽었는지 여부를 true로 바꿔주고 
-            isDead = true;
+        base.Die();
 
-            // 사망 애니메이션 발동하기(트리거 이름 BossDie로 가정)
-            animator.SetTrigger("BossDie");
-
-            // 플레이어의 골드 증가시키기
-            //Manager.Data.playerStatus.(골드 추가 시) += gold * Random.Range(0.8f, 1.1f);
-
-            // 플레이어의 경험치 증가시키기 (데이터 매니저 통해서)
-            Manager.Data.playerStatus.curExp += exp;
-
-            // 게임 오브젝트를 2초 뒤에 다시 풀로 돌려보내기.
-            Manager.Resources.Destroy(gameObject, 2f);
-
-        }
+        Manager.Game.GameClear();
     }
-
 }
