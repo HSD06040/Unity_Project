@@ -14,6 +14,7 @@ public class StateController : MonoBehaviour
     public PlayerIdleState idleState { get; private set; }
     public PlayerStopState stopState { get; private set; }
     public PlayerAttackState attackState { get; private set; }
+    public Player_Roll_State rollState { get; private set; }
     //public PlayerDieState dieState { get; private set; }
 
     // Skill
@@ -33,6 +34,7 @@ public class StateController : MonoBehaviour
         idleState = new PlayerIdleState(player, stateMachine, "Idle");
         attackState = new PlayerAttackState(player, stateMachine, "Attack");
         stopState = new PlayerStopState(player, stateMachine, "Stop");
+        rollState = new Player_Roll_State(player, stateMachine, "Roll");
         // dieState = new PlayerDieState(player, stateMachine, "Die");
 
         // Skill

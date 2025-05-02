@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, ISkillOwner
     public float moveSpeed;
 
     public float rotateSpeed;
+    public float roolForce = 10;
 
     public Vector3 moveDir {  get; private set; }
     public Vector3 camDir {  get; private set; }
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour, ISkillOwner
     public float[] attackMoveForce;
     public float[] attackForce;
 
+    public bool invincibility;
+                
     // 유니티에서 Ground 레이어 추가하기
     public LayerMask groundLayer;
     public float groundCheckDistance = 0.2f;
